@@ -32,7 +32,20 @@ function makeResizableDiv(){
                 wrapper.removeEventListener('mousemove', resize);
             }
         });
+    }
+}
 
+function makeResizableDivTouch(){
+    const wrapper = document.querySelector('.wrapper');
+    let resizeableDiv = document.querySelectorAll('div .item');
+    let minimumSize = 50;
+
+    let originalWidth = 0;
+    let originalX = 0;
+    let originalMouseX = 0;
+
+    for (let i = 0; i < resizeableDiv.length; i++) {
+        const currentDiv = resizeableDiv[i];
         currentDiv.addEventListener('touchstart', function(e) {
             e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
@@ -57,8 +70,4 @@ function makeResizableDiv(){
             }
         });
     }
-}
-
-function test(){
-    window.addEventListener('touchmove', alert('Bla'))
 }
