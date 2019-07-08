@@ -58,7 +58,3 @@ function makeResizableDiv(){
         });
     }
 }
-
-function test() {
-    window.addEventListener('touchstart', alert('bla'))
-}
