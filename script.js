@@ -45,8 +45,8 @@ function makeResizableDivTouch(){
     let originalMouseX = 0;
 
     for (let i = 0; i < resizeableDiv.length; i++) {
-        wrapper.addEventListener('touchstart', alert('Test'));
         const currentDiv = resizeableDiv[i];
+        wrapper.addEventListener('touchstart', alert('Test'));
         currentDiv.addEventListener('touchstart', function(e) {
             e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
