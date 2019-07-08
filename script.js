@@ -36,7 +36,7 @@ function makeResizableDiv(){
 
         currentDiv.addEventListener('ontouchstart', function(e) {
             alert(e);
-            e.preventDefault();
+            // e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
             originalX = currentDiv.getBoundingClientRect().right;
             originalMouseX = e.pageX;
