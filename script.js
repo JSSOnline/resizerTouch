@@ -60,5 +60,5 @@ function makeResizableDiv(){
 }
 
 function test() {
-    window.addEventListener('touchstart',console.log('bla'))
+    window.addEventListener('touchstart', alert('bla'))
 }
