@@ -49,6 +49,7 @@ function makeResizableDiv(){
 
                     if(width > minimumSize){
                         currentDiv.style.width = width + 'px';
+                        document.getElementById('col1').innerText = width + 'px';
                     }
                 }
             }
