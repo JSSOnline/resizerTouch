@@ -1,5 +1,4 @@
 function makeResizableDiv(){
-    alert('Bla')
     const wrapper = document.querySelector('.wrapper');
     let resizeableDiv = document.querySelectorAll('div .item');
     let minimumSize = 50;
@@ -36,7 +35,6 @@ function makeResizableDiv(){
         });
 
         currentDiv.addEventListener('touchstart', function(e) {
-            alert(e);
             e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
             originalX = currentDiv.getBoundingClientRect().right;
@@ -55,7 +53,7 @@ function makeResizableDiv(){
                 }
             }
             function stopResize() {
-                wrapper.removeEventListener('mousemove', resize);
+                wrapper.removeEventListener('touchmove', resize);
             }
         });
     }
