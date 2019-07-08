@@ -58,3 +58,7 @@ function makeResizableDiv(){
         });
     }
 }
+
+function test(){
+    window.addEventListener('touchmove', alert('Bla'))
+}
