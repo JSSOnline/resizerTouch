@@ -9,38 +9,33 @@ function makeResizableDiv(){
 
     for (let i = 0; i < resizeableDiv.length; i++) {
         const currentDiv = resizeableDiv[i];
-        currentDiv.addEventListener('mousedown', function(e){
-            e.preventDefault();
-            originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
-            originalX = currentDiv.getBoundingClientRect().right;
-            originalMouseX = e.pageX;
+        // currentDiv.addEventListener('mousedown', function(e){
+            
+        //     e.preventDefault();
+        //     originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
+        //     originalX = currentDiv.getBoundingClientRect().right;
+        //     originalMouseX = e.pageX;
 
-            wrapper.addEventListener('mousemove', resize);
-            wrapper.addEventListener('mouseup', stopResize);
+        //     wrapper.addEventListener('mousemove', resize);
+        //     window.addEventListener('mouseup', stopResize);
 
-            console.log('originalWidth: ', originalWidth);
-            console.log('originalX (right): ', originalX);
-            console.log('originalMouseX (right): ', originalMouseX);
+        //     function resize(e){
+        //         if (currentDiv) {
+        //             const width = originalWidth + (e.pageX - originalMouseX);
 
-            function resize(e){
-                console.log(e)
-                if (currentDiv) {
-                    const width = originalWidth + (e.pageX - originalMouseX);
-
-                    if(width > minimumSize){
-                        currentDiv.style.width = width + 'px';
-                    }
-                    console.log(width)
-                }
-                console.log('resize');
-            }
-            function stopResize() {
-                wrapper.removeEventListener('mousemove', resize);
-                console.log('Stop resize');
-            }
-        });
+        //             if(width > minimumSize){
+        //                 currentDiv.style.width = width + 'px';
+        //                 document.getElementById('col1').innerText = width + 'px';
+        //             }
+        //         }
+        //     }
+        //     function stopResize() {
+        //         wrapper.removeEventListener('mousemove', resize);
+        //     }
+        // });
 
         currentDiv.addEventListener('ontouchstart', function(e) {
+            alert(e);
             e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
             originalX = currentDiv.getBoundingClientRect().right;
