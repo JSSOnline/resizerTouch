@@ -45,14 +45,14 @@ function makeResizableDivTouch(){
 
     for (let i = 0; i < resizeableDiv.length; i++) {
         const currentDiv = resizeableDiv[i];
-        window.addEventListener('touchstart', (e) => {
+        document.addEventListener('touchstart', (e) => {
             e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
             originalX = currentDiv.getBoundingClientRect().right;
             originalMouseX = e.pageX;
 
-            window.addEventListener('touchmove', resize);
-            window.addEventListener('touchend', stopResize);
+            document.addEventListener('touchmove', resize);
+            document.addEventListener('touchend', stopResize);
 
             function resize(e){
                 if (currentDiv) {
@@ -65,7 +65,7 @@ function makeResizableDivTouch(){
                 }
             }
             function stopResize() {
-                window.removeEventListener('touchmove', resize);
+                document.removeEventListener('touchmove', resize);
             }
         });
     }
