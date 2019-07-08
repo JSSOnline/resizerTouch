@@ -1,4 +1,5 @@
 function makeResizableDiv(){
+    alert('bla')
     const wrapper = document.querySelector('.wrapper');
     let resizeableDiv = document.querySelectorAll('div .item');
     let minimumSize = 50;
@@ -9,30 +10,30 @@ function makeResizableDiv(){
 
     for (let i = 0; i < resizeableDiv.length; i++) {
         const currentDiv = resizeableDiv[i];
-        // currentDiv.addEventListener('mousedown', function(e){
+        currentDiv.addEventListener('mousedown', function(e){
             
-        //     e.preventDefault();
-        //     originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
-        //     originalX = currentDiv.getBoundingClientRect().right;
-        //     originalMouseX = e.pageX;
+            e.preventDefault();
+            originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
+            originalX = currentDiv.getBoundingClientRect().right;
+            originalMouseX = e.pageX;
 
-        //     wrapper.addEventListener('mousemove', resize);
-        //     window.addEventListener('mouseup', stopResize);
+            wrapper.addEventListener('mousemove', resize);
+            window.addEventListener('mouseup', stopResize);
 
-        //     function resize(e){
-        //         if (currentDiv) {
-        //             const width = originalWidth + (e.pageX - originalMouseX);
+            function resize(e){
+                if (currentDiv) {
+                    const width = originalWidth + (e.pageX - originalMouseX);
 
-        //             if(width > minimumSize){
-        //                 currentDiv.style.width = width + 'px';
-        //                 document.getElementById('col1').innerText = width + 'px';
-        //             }
-        //         }
-        //     }
-        //     function stopResize() {
-        //         wrapper.removeEventListener('mousemove', resize);
-        //     }
-        // });
+                    if(width > minimumSize){
+                        currentDiv.style.width = width + 'px';
+                        document.getElementById('col1').innerText = width + 'px';
+                    }
+                }
+            }
+            function stopResize() {
+                wrapper.removeEventListener('mousemove', resize);
+            }
+        });
 
         currentDiv.addEventListener('ontouchstart', function(e) {
             alert(e);
