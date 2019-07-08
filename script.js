@@ -44,6 +44,8 @@ function makeResizableDivTouch(){
     let originalX = 0;
     let originalMouseX = 0;
 
+    wrapper.addEventListener('touchstart', alert('Test'));
+
     for (let i = 0; i < resizeableDiv.length; i++) {
         const currentDiv = resizeableDiv[i];
         currentDiv.addEventListener('touchstart', function(e) {
