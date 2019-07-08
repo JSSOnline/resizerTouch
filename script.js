@@ -10,7 +10,6 @@ function makeResizableDiv(){
     for (let i = 0; i < resizeableDiv.length; i++) {
         const currentDiv = resizeableDiv[i];
         currentDiv.addEventListener('mousedown', function(e){
-            
             e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
             originalX = currentDiv.getBoundingClientRect().right;
@@ -57,5 +56,11 @@ function makeResizableDiv(){
                 wrapper.removeEventListener('touchmove', resize);
             }
         });
+    }
+}
+
+function test(){
+    window.addEventListener('touchstart', function(){
+        alert('bla')
     }
 }
