@@ -1,4 +1,5 @@
 function makeResizableDiv(){
+    console.log('Test')
     const wrapper = document.querySelector('.wrapper');
     let resizeableDiv = document.querySelectorAll('div .item');
     let minimumSize = 50;
