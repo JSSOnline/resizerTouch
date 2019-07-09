@@ -58,10 +58,9 @@ function makeResizableDivTouch(){
             function resize(e){
                 if (currentDiv) {
                     const width = originalWidth + (e.pageX - originalMouseX);
-
+                    alert(width);
                     if(width > minimumSize){
                         currentDiv.style.width = width + 'px';
-                        alert(width);
                         document.getElementById('col1').innerText = width + 'px';
                     }
                 }
