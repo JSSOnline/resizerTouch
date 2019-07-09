@@ -53,7 +53,6 @@ function makeResizableDivTouch(){
 
             wrapper.addEventListener('touchmove', resize);
             wrapper.addEventListener('touchend', stopResize);
-            alert('e.changedTouches[0].pageX ' + e.changedTouches[0].pageX)
             function resize(e){
                 if (currentDiv) {
                     const width = originalWidth + (e.changedTouches[0].pageX - originalMouseX);
