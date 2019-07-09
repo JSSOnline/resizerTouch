@@ -57,7 +57,7 @@ function makeResizableDivTouch(){
             function resize(e){
                 if (currentDiv) {
                     const width = originalWidth + (e.pageX - originalMouseX);
-                    alert('e.pageX ' + e.pageX)
+                    alert('e ' + e)
                     if(width > minimumSize){
                         currentDiv.style.width = width + 'px';
                         document.getElementById('col1').innerText = width + 'px';
