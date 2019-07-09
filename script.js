@@ -46,7 +46,7 @@ function makeResizableDivTouch(){
     for (let i = 0; i < resizeableDiv.length; i++) {
         const currentDiv = resizeableDiv[i];
         currentDiv.addEventListener('touchstart', (e) => {
-            //e.preventDefault();
+            e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
             originalX = currentDiv.getBoundingClientRect().right;
             originalMouseX = e.touches[0].clientX;
@@ -56,7 +56,7 @@ function makeResizableDivTouch(){
 
             function resize(e){
                 if (currentDiv) {
-                    const width = originalWidth + (e.pageX - originalMouseX);
+                    const width = originalWidth + (e.touches[0].clientX - originalMouseX);
                     if(width > minimumSize){
                         currentDiv.style.width = width + 'px';
                         document.getElementById('col1').innerText = width + 'px';
