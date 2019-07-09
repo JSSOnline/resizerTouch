@@ -21,7 +21,7 @@ function makeResizableDiv(){
             function resize(e){
                 if (currentDiv) {
                     const width = originalWidth + (e.pageX - originalMouseX);
-
+                    alert('originalWidth ' + originalWidth)
                     if(width > minimumSize){
                         currentDiv.style.width = width + 'px';
                         document.getElementById('col1').innerText = width + 'px';
