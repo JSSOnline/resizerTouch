@@ -10,7 +10,7 @@ function makeResizableDiv(){
     for (let i = 0; i < resizeableDiv.length; i++) {
         const currentDiv = resizeableDiv[i];
         currentDiv.addEventListener('mousedown', (e) => {
-            e.preventDefault();
+            //e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
             originalX = currentDiv.getBoundingClientRect().right;
             originalMouseX = e.pageX;
@@ -34,6 +34,7 @@ function makeResizableDiv(){
         });
     }
 }
+
 function makeResizableDivTouch(){
     const wrapper = document.querySelector('.wrapper');
     let resizeableDiv = document.querySelectorAll('div .item');
@@ -45,14 +46,14 @@ function makeResizableDivTouch(){
 
     for (let i = 0; i < resizeableDiv.length; i++) {
         const currentDiv = resizeableDiv[i];
-        document.addEventListener('touchstart', (e) => {
+        currentDiv.addEventListener('touchstart', (e) => {
             e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
             originalX = currentDiv.getBoundingClientRect().right;
             originalMouseX = e.pageX;
 
-            document.addEventListener('touchmove', resize);
-            document.addEventListener('touchend', stopResize);
+            wrapper.addEventListener('touchmove', resize);
+            wrapper.addEventListener('touchend', stopResize);
 
             function resize(e){
                 if (currentDiv) {
@@ -65,7 +66,7 @@ function makeResizableDivTouch(){
                 }
             }
             function stopResize() {
-                document.removeEventListener('touchmove', resize);
+                wrapper.removeEventListener('touchmove', resize);
             }
         });
     }
