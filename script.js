@@ -47,6 +47,7 @@ function makeResizableDivTouch(){
     for (let i = 0; i < resizeableDiv.length; i++) {
         const currentDiv = resizeableDiv[i];
         currentDiv.addEventListener('touchstart', (e) => {
+            console.log('start');
             //e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
             originalX = currentDiv.getBoundingClientRect().right;
