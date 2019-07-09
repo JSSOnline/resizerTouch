@@ -57,11 +57,11 @@ function makeResizableDivTouch(){
 
             function resize(e){
                 if (currentDiv) {
-                    alert('Bla')
                     const width = originalWidth + (e.pageX - originalMouseX);
 
                     if(width > minimumSize){
                         currentDiv.style.width = width + 'px';
+                        alert(width);
                         document.getElementById('col1').innerText = width + 'px';
                     }
                 }
