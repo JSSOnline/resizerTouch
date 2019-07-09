@@ -49,14 +49,14 @@ function makeResizableDivTouch(){
             e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
             originalX = currentDiv.getBoundingClientRect().right;
-            originalMouseX = e.touches[0].clientX;
+            originalMouseX = e.changedTouches[0].pageX;
 
             wrapper.addEventListener('touchmove', resize);
             wrapper.addEventListener('touchend', stopResize);
-
+            alert('e.changedTouches[0].pageX ' + e.changedTouches[0].pageX)
             function resize(e){
                 if (currentDiv) {
-                    const width = originalWidth + (e.touches[0].clientX - originalMouseX);
+                    const width = originalWidth + (e.changedTouches[0].pageX - originalMouseX);
                     if(width > minimumSize){
                         currentDiv.style.width = width + 'px';
                         document.getElementById('col1').innerText = width + 'px';
