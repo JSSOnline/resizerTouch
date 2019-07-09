@@ -36,8 +36,6 @@ function makeResizableDiv(){
 }
 
 function makeResizableDivTouch(){
-    console.log('Test')
-    alert('Test')
     const wrapper = document.querySelector('.wrapper');
     let resizeableDiv = document.querySelectorAll('div .item');
     let minimumSize = 50;
@@ -50,6 +48,7 @@ function makeResizableDivTouch(){
         const currentDiv = resizeableDiv[i];
         currentDiv.addEventListener('touchstart', (e) => {
             console.log('start');
+            alert('Test')
             //e.preventDefault();
             originalWidth = parseFloat(getComputedStyle(currentDiv, null).getPropertyValue('width').replace('px', ''));
             originalX = currentDiv.getBoundingClientRect().right;
